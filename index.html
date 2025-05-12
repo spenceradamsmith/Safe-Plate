@@ -11,7 +11,56 @@
         <h1>Smart Food Finder</h1>
     </header>
     <main>
-        
+        <div class="dropdown-container">
+            <div class="dropdown">
+                <button class="dropdown-btn">Allergies ⌄</button>
+                <div class="dropdown-content">
+                    <label><input type="checkbox" value="peanuts"> Peanuts</label>
+                    <label><input type="checkbox" value="treenuts"> Treenuts</label>
+                    <label><input type="checkbox" value="shellfish"> Shellfish</label>
+                    <label><input type="checkbox" value="fish"> Fish</label>
+                    <label><input type="checkbox" value="dairy"> Dairy</label>
+                    <label><input type="checkbox" value="gluten"> Gluten</label>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropdown-btn">Dietary Restrictions ⌄</button>
+                <div class="dropdown-content">
+                    <label><input type="checkbox" value="vegan"> Vegan</label>
+                    <label><input type="checkbox" value="vegetarian"> Vegetarian</label>
+                    <label><input type="checkbox" value="halal"> Halal</label>
+                    <label><input type="checkbox" value="kosher"> Kosher</label>
+                    <label><input type="checkbox" value="gluten-free"> Gluten Free</label>
+                    <label><input type="checkbox" value="dairy-free"> Dairy Free</label>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <button class="dropdown-btn">Food Preferences ⌄</button>
+                <div class="dropdown-content">
+                    <label><input type="checkbox" value="highProtein"> High Protein</label>
+                    <label><input type="checkbox" value="lowSodium"> Low Sodium</label>
+                </div>
+            </div>
+        </div>
     </main>
+    <script>
+    // Toggle dropdown content
+    document.querySelectorAll('.dropdown-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.nextElementSibling.classList.toggle('show');
+      });
+    });
+
+    // Close dropdowns when clicking outside
+    window.addEventListener('click', function(e) {
+      document.querySelectorAll('.dropdown-content').forEach(content => {
+        if (!content.previousElementSibling.contains(e.target) && !content.contains(e.target)) {
+          content.classList.remove('show');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
