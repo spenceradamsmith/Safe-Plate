@@ -6,6 +6,7 @@
     <title>Smart Food Finder</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<script src="script.js"></script>
 <body>
     <header>
         <h1>Smart Food Finder</h1>
@@ -13,23 +14,27 @@
     <main>
         <div class="dropdown-container">
             <div class="dropdown">
+                <!-- Dropdown for Allergies -->
                 <button class="dropdown-btn">Allergies ⌄</button>
                 <div class="dropdown-content">
-                    <label><input type="checkbox" value="peanuts"> Peanuts</label>
-                    <label><input type="checkbox" value="treenuts"> Treenuts</label>
-                    <label><input type="checkbox" value="shellfish"> Shellfish</label>
+                    <label><input type="checkbox" value="milk"> Milk</label>
+                    <label><input type="checkbox" value="eggs"> Eggs</label>
                     <label><input type="checkbox" value="fish"> Fish</label>
-                    <label><input type="checkbox" value="dairy"> Dairy</label>
-                    <label><input type="checkbox" value="gluten"> Gluten</label>
+                    <label><input type="checkbox" value="shellfish"> Shellfish</label>
+                    <label><input type="checkbox" value="tree-nuts"> Tree Nuts</label>
+                    <label><input type="checkbox" value="peanuts"> Peanuts</label>
+                    <label><input type="checkbox" value="wheat"> Wheat</label>
+                    <label><input type="checkbox" value="soybeans"> Soybeans</label>
+                    <label><input type="checkbox" value="sesame"> Sesame</label>
                 </div>
             </div>
 
             <div class="dropdown">
+                <!-- Dropdown for Dietary Restrictions -->
                 <button class="dropdown-btn">Dietary Restrictions ⌄</button>
                 <div class="dropdown-content">
                     <label><input type="checkbox" value="vegan"> Vegan</label>
                     <label><input type="checkbox" value="vegetarian"> Vegetarian</label>
-                    <label><input type="checkbox" value="halal"> Halal</label>
                     <label><input type="checkbox" value="kosher"> Kosher</label>
                     <label><input type="checkbox" value="gluten-free"> Gluten Free</label>
                     <label><input type="checkbox" value="dairy-free"> Dairy Free</label>
@@ -37,35 +42,30 @@
             </div>
             
             <div class="dropdown">
+                <!-- Dropdown for Preferences -->
                 <button class="dropdown-btn">Preferences ⌄</button>
                 <div class="dropdown-content">
-                    <label><input type="checkbox" value="highProtein"> High Protein</label>
-                    <label><input type="checkbox" value="lowSodium"> Low Sodium</label>
+                    <label><input type="checkbox" value="high-protein"> High Protein</label>
+                    <label><input type="checkbox" value="low-sugar"> Low Sugar</label>
+                    <label><input type="checkbox" value="low-sodium"> Low Sodium</label>
+                    <label><input type="checkbox" value="low-calorie"> Low Calorie</label>
+                    <label><input type="checkbox" value="low-histamine"> Low Histamine</label>
                 </div>
             </div>
         </div>
         
+        <!-- Search bar -->
         <div class="search-container">
-            <input type="text" id="search" placeholder="Search for a food">
+            <input type="text" id="search" placeholder="Search for a food...">
             <button id="search-btn">Search</button>
         </div>
+        
+        <!-- Results section -->
+        <div class="results-container">
+            <h2>Results</h2>
+            <ul id="results-list">
+                
+            </ul>
     </main>
-    <script>
-    // Toggle dropdown content
-    document.querySelectorAll('.dropdown-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        btn.nextElementSibling.classList.toggle('show');
-      });
-    });
-
-    // Close dropdowns when clicking outside
-    window.addEventListener('click', function(e) {
-      document.querySelectorAll('.dropdown-content').forEach(content => {
-        if (!content.previousElementSibling.contains(e.target) && !content.contains(e.target)) {
-          content.classList.remove('show');
-        }
-      });
-    });
-  </script>
 </body>
 </html>
