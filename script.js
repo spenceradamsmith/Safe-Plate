@@ -13197,9 +13197,7 @@ function renderPage(results) {
             <div class="food-card">
                 <img src="${food.image}" alt="${food.name}" class="food-image">
                 <div class="food-name">${food.name}</div>
-                <button class="food-details-btn">Food Details</button>
             </div>
-            
         `;
         foodList.appendChild(foodItem);
     });
@@ -13208,6 +13206,19 @@ function renderPage(results) {
     const totalPages = Math.ceil(results.length / pageSize);
     const pagination = document.getElementById('pagination');
     pagination.innerHTML = '';
+
+    const prevBtn = document.createElement('button');
+    prevBtn.textContent = 'Previous';
+    prevBtn.disabled = currentPage === 1;
+    prevBtn.className = 'page-btn prev-btn';
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            renderPage(results);
+        }
+    });
+    pagination.appendChild(prevBtn);
+
     for (let i = 1; i <= totalPages; i++) {
         const pageBtn = document.createElement('button');
         pageBtn.textContent = i;
@@ -13221,6 +13232,18 @@ function renderPage(results) {
         });
         pagination.appendChild(pageBtn);
     }
+
+    const nextBtn = document.createElement('button');
+    nextBtn.textContent = 'Next';
+    nextBtn.disabled = currentPage === totalPages;
+    nextBtn.className = 'page-btn next-btn';
+    nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+            currentPage++;
+            renderPage(results);
+        }
+    });
+    pagination.appendChild(nextBtn);
 }
 
 function setFoods(foodData) {
