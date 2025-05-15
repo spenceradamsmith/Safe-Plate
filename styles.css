@@ -86,3 +86,11 @@ body {
 #search-btn:active {
     background-color: grey;
 }
+
+.results-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+}

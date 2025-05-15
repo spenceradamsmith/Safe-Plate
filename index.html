@@ -17,14 +17,13 @@
                 <button class="dropdown-btn">Allergies ⌄</button>
                 <div class="dropdown-content">
                     <label><input type="checkbox" value="milk"> Milk</label>
-                    <label><input type="checkbox" value="eggs"> Eggs</label>
+                    <label><input type="checkbox" value="egg"> Eggs</label>
                     <label><input type="checkbox" value="fish"> Fish</label>
                     <label><input type="checkbox" value="shellfish"> Shellfish</label>
-                    <label><input type="checkbox" value="tree nuts"> Tree Nuts</label>
+                    <label><input type="checkbox" value="treeNuts"> Tree Nuts</label>
                     <label><input type="checkbox" value="peanuts"> Peanuts</label>
                     <label><input type="checkbox" value="wheat"> Wheat</label>
-                    <label><input type="checkbox" value="soybeans"> Soybeans</label>
-                    <label><input type="checkbox" value="sesame"> Sesame</label>
+                    <label><input type="checkbox" value="soy"> Soy</label>
                 </div>
             </div>
 
@@ -35,8 +34,8 @@
                     <label><input type="checkbox" value="vegan"> Vegan</label>
                     <label><input type="checkbox" value="vegetarian"> Vegetarian</label>
                     <label><input type="checkbox" value="kosher"> Kosher</label>
-                    <label><input type="checkbox" value="gluten-free"> Gluten Free</label>
-                    <label><input type="checkbox" value="dairy-free"> Dairy Free</label>
+                    <label><input type="checkbox" value="glutenFree"> Gluten Free</label>
+                    <label><input type="checkbox" value="dairyFree"> Dairy Free</label>
                 </div>
             </div>
             
@@ -44,11 +43,11 @@
                 <!-- Dropdown for Preferences -->
                 <button class="dropdown-btn">Preferences ⌄</button>
                 <div class="dropdown-content">
-                    <label><input type="checkbox" value="high-protein"> High Protein</label>
-                    <label><input type="checkbox" value="low-sugar"> Low Sugar</label>
-                    <label><input type="checkbox" value="low-sodium"> Low Sodium</label>
-                    <label><input type="checkbox" value="low-calorie"> Low Calorie</label>
-                    <label><input type="checkbox" value="low-histamine"> Low Histamine</label>
+                    <label><input type="checkbox" value="highProtein"> High Protein</label>
+                    <label><input type="checkbox" value="lowSugar"> Low Sugar</label>
+                    <label><input type="checkbox" value="lowSodium"> Low Sodium</label>
+                    <label><input type="checkbox" value="lowCalorie"> Low Calorie</label>
+                    <label><input type="checkbox" value="lowHistamine"> Low Histamine</label>
                 </div>
             </div>
         </div>
@@ -62,9 +61,10 @@
         <!-- Results section -->
         <div class="results-container">
             <h2>Results</h2>
-            <ul id="results-list">
-            
-            </ul>
+            <ul id="results-list"></ul>
+        </div>
+
+        <div id="pagination"></div></div>
     </main>
     <script src="script.js"></script>
 </body>
