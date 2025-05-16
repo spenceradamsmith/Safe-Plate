@@ -13175,7 +13175,7 @@ function performSearch() {
             if (preference === 'lowHistamine' && !item.lowHistamine) {
                 return false;
             }
-        }
+          }
         return true;
     });
     renderPage(results);
@@ -13270,7 +13270,7 @@ function openFoodPopup(food) {
     document.getElementById('popup-serving-size').innerHTML = `
       <span class="label"><strong>Serving Size:</strong></span>
       <span class="value">${food.servingSize} (${food.servingGrams} g)</span>
-`   ;
+    `;
 
     const nutrition = `
         <li><strong>Calories:</strong> ${food.calories} kcal</li>
@@ -13282,17 +13282,55 @@ function openFoodPopup(food) {
         <li><strong>Category:</strong> ${food.category}</li>
     `;
     document.getElementById('popup-nutrition').innerHTML = nutrition;
+
+    // Tags
+    document.getElementById('allergen-tags').innerHTML = '';
+    document.getElementById('diet-tags').innerHTML = '';
+    document.getElementById('preference-tags').innerHTML = '';
+
+    // Function to add tags
+    function addTag(containerId, text, isGood) {
+      const tag = document.createElement('div');
+      tag.className = `tag ${isGood ? 'green' : 'red'}`;
+      tag.textContent = text;
+      document.getElementById(containerId).appendChild(tag);
+    }
+
+    // Allergies
+    addTag('allergen-tags', food.milk ? 'Contains Milk' : 'Milk Free', !food.milk);
+    addTag('allergen-tags', food.egg ? 'Contains Egg' : 'Egg Free', !food.egg);
+    addTag('allergen-tags', food.fish ? 'Contains Fish' : 'Fish Free', !food.fish);
+    addTag('allergen-tags', food.shellfish ? 'Contains Shellfish' : 'Shellfish Free', !food.shellfish);
+    addTag('allergen-tags', food.treeNuts ? 'Contains Tree Nuts' : 'Tree Nut Free', !food.treeNuts);
+    addTag('allergen-tags', food.peanuts ? 'Contains Peanuts' : 'Peanut Free', !food.peanuts);
+    addTag('allergen-tags', food.wheat ? 'Contains Wheat' : 'Wheat Free', !food.wheat);
+    addTag('allergen-tags', food.soy ? 'Contains Soy' : 'Soy Free', !food.soy);
+
+    // Restrictions
+    addTag('diet-tags', food.vegan ? 'Vegan' : 'Not Vegan', food.vegan);
+    addTag('diet-tags', food.vegetarian ? 'Vegetarian' : 'Not Vegetarian', food.vegetarian);
+    addTag('diet-tags', food.kosher ? 'Kosher' : 'Not Kosher', food.kosher);
+    addTag('diet-tags', food.glutenFree ? 'Gluten-Free' : 'Contains Gluten', food.glutenFree);
+    addTag('diet-tags', food.dairyFree ? 'Dairy-Free' : 'Contains Dairy', food.dairyFree);
+
+    // Preferences (with thresholds)
+    const proteinPerGram = food.protein / food.servingGrams;
+    const sugarPerGram = food.sugars / food.servingGrams;
+    const sodiumPerGram = food.sodium / food.servingGrams;
+    const caloriesPerGram = food.calories / food.servingGrams;
+
+    addTag('preference-tags', proteinPerGram >= 0.1 ? 'High Protein' : 'Not High Protein', proteinPerGram >= 0.1);
+    addTag('preference-tags', sugarPerGram <= 0.05 ? 'Low Sugar' : 'Not Low Sugar', sugarPerGram <= 0.05);
+    addTag('preference-tags', sodiumPerGram <= 1.2 ? 'Low Sodium' : 'Not Low Sodium', sodiumPerGram <= 1.2);
+    addTag('preference-tags', caloriesPerGram <= 1.5 ? 'Low Calorie' : 'Not Low Calorie', caloriesPerGram <= 1.5);
+    addTag('preference-tags', food.lowHistamine ? 'Low Histamine' : 'Not Low Histamine', food.lowHistamine);
+
+    // === Show the popup ===
     document.getElementById('food-popup').classList.remove('hidden');
 }
+
 
 // Close popup when X is clicked
 document.getElementById('close-popup').addEventListener('click', () => {
     document.getElementById('food-popup').classList.add('hidden');
-});
-
-// Close popup when clicking outside of the popup
-document.getElementById('food-popup').addEventListener('click', (e) => {
-  if (e.target.id === 'food-popup') {
-    document.getElementById('food-popup').classList.add('hidden');
-  }
 });
