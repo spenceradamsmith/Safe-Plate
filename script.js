@@ -13260,7 +13260,7 @@ function openFoodPopup(food) {
         <li><strong>Calories:</strong> ${food.calories} kcal</li>
         <li><strong>Protein:</strong> ${food.protein} g</li>
         <li><strong>Total Fat:</strong> ${food.fat} g</li>
-        <li><strong>Total Carbohydrate:</strong> ${food.carbohydrate} g</li>
+        <li><strong>Carbohydrates:</strong> ${food.carbohydrate} g</li>
         <li><strong>Total Sugars:</strong> ${food.sugars} g</li>
         <li><strong>Sodium:</strong> ${food.sodium} mg</li>
         <li><strong>Category:</strong> ${food.category}</li>

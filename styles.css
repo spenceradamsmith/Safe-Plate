@@ -63,6 +63,7 @@ body {
     justify-content: center;
     padding-top: 25px;
     gap: 10px;
+    padding-bottom: 10px;
 }
 
 #search {
@@ -291,11 +292,11 @@ body {
 }
 
 .tag.green {
-  background-color: #198b1d;
+  background-color: #008000;
 }
 
 .tag.red {
-  background-color: #da0f00;
+  background-color: #ff0000;
 }
 
 .close-btn {
