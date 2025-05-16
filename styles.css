@@ -160,8 +160,8 @@ body {
     position: fixed;
     top: 65%;
     left: 50%;
-    width: 75%;
-    height: 60%;
+    max-width: 700px;
+    max-height: 550px;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -14,10 +14,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    document.addEventListener("DOMContentLoaded", () => {
-        document.getElementById('close-popup').addEventListener('click', () => {
-            document.getElementById('food-popup').classList.add('hidden');
-        });
+    
+    // Close dropdowns when clicking outside
+    window.addEventListener('click', () => {
+      document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+        dropdown.classList.remove('show');
+      });
+    });
+
+    // Prevent dropdown from closing when clicking inside it
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      dropdown.addEventListener('click', e => {
+        e.stopPropagation(); // Prevent window click from firing
+      });
     });
 
     // Event listeners for checkboxes
@@ -33,6 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (label.includes('Preferences')) {
                 updateFilter(preferences, value, isChecked);
             }
+            document.getElementById('search').value = '';
+            search = '';
             performSearch();
         });
     });
@@ -8222,33 +8233,6 @@ document.addEventListener('DOMContentLoaded', () => {
     "image": "https://assets.epicurious.com/photos/59b2bccaed60845e59e6d3d1/4:3/w_4992,h_3744,c_limit/shutterstock_321217517.jpg"
   },
   {
-    "name": "White Rice",
-    "servingSize": "1 cup",
-    "servingGrams": 185.0,
-    "calories": 240.5,
-    "protein": 4.4,
-    "fat": 0.6,
-    "carbohydrate": 51.8,
-    "sugars": 0.2,
-    "sodium": 37.0,
-    "category": "Grain",
-    "glutenFree": true,
-    "dairyFree": true,
-    "kosher": true,
-    "vegan": true,
-    "vegetarian": true,
-    "milk": false,
-    "egg": false,
-    "fish": false,
-    "shellfish": false,
-    "treeNuts": false,
-    "peanuts": false,
-    "wheat": false,
-    "soy": false,
-    "lowHistamine": true,
-    "image": "https://www.pressurecookrecipes.com/wp-content/uploads/2018/06/instant-pot-rice.jpg"
-  },
-  {
     "name": "Brown Rice",
     "servingSize": "1 cup",
     "servingGrams": 185.0,
@@ -13328,7 +13312,6 @@ function openFoodPopup(food) {
     // === Show the popup ===
     document.getElementById('food-popup').classList.remove('hidden');
 }
-
 
 // Close popup when X is clicked
 document.getElementById('close-popup').addEventListener('click', () => {
