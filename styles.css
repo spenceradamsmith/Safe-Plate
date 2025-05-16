@@ -39,7 +39,7 @@ body {
 
 .dropdown-content {
     display: none;
-    position: absolute; /*Change to center if want the search to move down when showing dropdown menu*/
+    position: absolute;
     width: 150px;
     background-color: white;
     border: 1px solid black;
@@ -88,24 +88,23 @@ body {
 }
 
 .results-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 30px;
+    margin: 0;
     list-style: none;
 }
 
 .food-item {
-    display: inline-block;
-    width: 200px;
-    margin: 30px;
-    padding: 0px;
+    display: flex;
+    flex-direction: column;
     border-radius: 10px;
     border: 1px solid lightgrey;
     background-color: white;
-    vertical-align: top;
     transition: transform 0.2s;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .food-item:hover {
@@ -115,12 +114,13 @@ body {
 
 .food-image {
     width: 100%;
-    height: 140px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     object-position: center;
 }
 
 .food-name {
-    margin: 10px 0;
+    margin: 10px;
     font-size: 1.1rem;
     font-weight: bold;
     text-align: center;
@@ -144,6 +144,69 @@ body {
 
 #pagination {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 15px;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    margin: 0 auto;
+    max-width: 100%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.popup {
+    position: fixed;
+    top: 65%;
+    left: 50%;
+    width: 75%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    position: relative;
+    text-align: center;
+}
+
+.popup-image {
+    width: 75%;
+    aspect-ratio: 4 / 3;
+    max-height: 10%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    color: black;
+    background: none;
+    border: none;
+    line-height: 1;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
 }

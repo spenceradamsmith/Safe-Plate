@@ -59,11 +59,19 @@
         </div>
         
         <!-- Results section -->
-        <div class="results-container">
-            <ul id="results-list"></ul>
-        </div>
+        <ul id="results-list" class="results-container"></ul>
 
-        <div id="pagination"></div></div>
+        <div id="pagination"></div>
+
+        <div id="food-popup" class="popup hidden">
+            <div class="popup-content">
+                <span class="close-btn close-popup">&times;</span>
+                <h2 id="popup-title"></h2>
+                <img id="popup-image" src="" alt="" class="popup-image">
+                <p id="popup-description"></p>
+                <ul id="popup-nutrition"></ul>
+            </div>
+        </div>
     </main>
     <script src="script.js"></script>
 </body>

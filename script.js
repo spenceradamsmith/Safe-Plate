@@ -14,12 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Close dropdowns if clicked outside
-    window.addEventListener('click', function (e) {
-        document.querySelectorAll('.dropdown-content').forEach(content => {
-            if (!content.previousElementSibling.contains(e.target) && !content.contains(e.target)) {
-                content.classList.remove('show');
-            }
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById('close-popup').addEventListener('click', () => {
+            document.getElementById('food-popup').classList.add('hidden');
         });
     });
 
@@ -52,6 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
         search = document.getElementById('search').value.trim();
         performSearch();
     });
+    
+    // Add event listener for exit button for popup
+    document.querySelector('.close-popup').addEventListener('click', () => {
+      document.getElementById('food-popup').classList.add('hidden');
+    });
+
+    
+    
+    window.scrollTo({top: 0, behavior: 'smooth'});
 
     fetch('foods.json')
         .then(res => res.json())
@@ -13200,6 +13206,9 @@ function renderPage(results) {
             </div>
         `;
         foodList.appendChild(foodItem);
+        foodItem.addEventListener('click', () => {
+            openFoodPopup(food);
+        });
     });
 
     // Pagination
@@ -13215,6 +13224,7 @@ function renderPage(results) {
         if (currentPage > 1) {
             currentPage--;
             renderPage(results);
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
     });
     pagination.appendChild(prevBtn);
@@ -13229,6 +13239,7 @@ function renderPage(results) {
         pageBtn.addEventListener('click', () => {
             currentPage = i;
             renderPage(results);
+            window.scrollTo({top: 0, behavior: 'smooth'});
         });
         pagination.appendChild(pageBtn);
     }
@@ -13241,6 +13252,7 @@ function renderPage(results) {
         if (currentPage < totalPages) {
             currentPage++;
             renderPage(results);
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
     });
     pagination.appendChild(nextBtn);
@@ -13250,3 +13262,34 @@ function setFoods(foodData) {
     allFoods = foodData;
     performSearch();
 }
+
+function openFoodPopup(food) {
+    document.getElementById('popup-title').textContent = food.name;
+    document.getElementById('popup-image').src = food.image;
+    document.getElementById('popup-image').alt = food.name;
+
+    const nutrition = `
+        <li><strong>Serving Size:</strong> ${food.servingSize} (${food.servingGrams}g)</li>
+        <li><strong>Calories:</strong> ${food.calories}</li>
+        <li><strong>Protein:</strong> ${food.protein}g</li>
+        <li><strong>Fat:</strong> ${food.fat}g</li>
+        <li><strong>Carbs:</strong> ${food.carbs}g</li>
+        <li><strong>Sugars:</strong> ${food.sugars}g</li>
+        <li><strong>Sodium:</strong> ${food.sodium}mg</li>
+        <li><strong>Category:</strong> ${food.category}</li>
+    `;
+    document.getElementById('popup-nutrition').innerHTML = nutrition;
+    document.getElementById('food-popup').classList.remove('hidden');
+}
+
+// Close popup when X is clicked
+document.getElementById('close-popup').addEventListener('click', () => {
+    document.getElementById('food-popup').classList.add('hidden');
+});
+
+// Close popup when clicking outside of the popup
+document.getElementById('food-popup').addEventListener('click', (e) => {
+  if (e.target.id === 'food-popup') {
+    document.getElementById('food-popup').classList.add('hidden');
+  }
+});
