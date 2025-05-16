@@ -64,14 +64,25 @@
         <div id="pagination"></div>
 
         <div id="food-popup" class="popup hidden">
-            <div class="popup-content">
-                <span class="close-btn close-popup">&times;</span>
-                <h2 id="popup-title"></h2>
-                <img id="popup-image" src="" alt="" class="popup-image">
-                <p id="popup-description"></p>
-                <ul id="popup-nutrition"></ul>
+    <div class="popup-content">
+        <span class="close-btn close-popup">&times;</span>
+            <h1 id="popup-title"></h1>
+        <div class="popup-body">
+            <div class="popup-left">
+                <img id="popup-image" src="" alt="Food image" class="popup-image">
+                <p id="ingredients"></p>
+            </div>
+            <div class="popup-right">
+                <div class="nutrition-info">
+                    <h3>Nutrition Facts</h3>
+                    <p id="popup-serving-size"></p>
+                    <ul id="popup-nutrition"></ul>
+                </div>
             </div>
         </div>
+    </div>
+</div>
+
     </main>
     <script src="script.js"></script>
 </body>
