@@ -26,6 +26,10 @@ body {
     display: flex;
     justify-content: space-evenly;
     gap: 10px;
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
 }
 
 .dropdown {
