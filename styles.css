@@ -2,6 +2,10 @@ html {
   scroll-behavior: smooth;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 main {
     max-width: 1200px;
     margin: 0 auto;
@@ -12,7 +16,7 @@ main {
 header {
     text-align: center;
     padding: 40px;
-    padding-bottom: 25px;
+    padding-bottom: 10px;
 }
 
 body {
@@ -22,9 +26,21 @@ body {
     background-color: white;
 }
 
+@media (max-width: 480px) {
+  .dropdown-container {
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 0 5px;
+  }
+  .dropdown-btn {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
 .dropdown-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     gap: 10px;
     max-width: 660px;
     margin: 0 auto;
@@ -175,7 +191,7 @@ body {
 
 .popup {
     position: fixed;
-    top: 65%;
+    top: 64%;
     left: 50%;
     max-width: 700px;
     max-height: 550px;
@@ -194,6 +210,13 @@ body {
     display: none;
 }
 
+.popup-content,
+.popup-body,
+.popup-left,
+.popup-right {
+  box-sizing: border-box;
+}
+
 .popup-content {
     background-color: white;
     padding: 10px;
@@ -205,6 +228,11 @@ body {
     text-align: center;
 }
 
+.popup-content > #popup-title {
+  margin-top: 0;
+  margin-bottom: 5px;
+  padding-bottom: 0;
+}
 .popup-image {
     max-width: 100%;
     aspect-ratio: 2 / 1;
