@@ -2,6 +2,13 @@ html {
   scroll-behavior: smooth;
 }
 
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
 header {
     text-align: center;
     padding: 40px;
@@ -27,6 +34,7 @@ body {
 
 .dropdown-btn {
     border-color: white;
+    color: black;
     width: 205px;
     border-width: 0px;
     border-radius: 10px;
@@ -35,6 +43,9 @@ body {
     font-size: 20px;
     font-style: bold;
     cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .dropdown-content {
@@ -82,6 +93,7 @@ body {
     border-radius: 10px;
     border: 2px solid black;
     cursor: pointer;
+    justify-content: center;
 }
 
 #search-btn:active {
@@ -91,6 +103,7 @@ body {
 .results-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    justify-content: center;
     gap: 30px;
     padding: 30px;
     margin: 0;
@@ -227,7 +240,6 @@ body {
     border: 1px solid black;
     padding: 10px;
     border-radius: 10px;
-    background: #fff;
     box-shadow: 0 0 3px rgba(0,0,0,0.05);
 }
 

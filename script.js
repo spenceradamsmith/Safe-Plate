@@ -9,11 +9,16 @@ const pageSize = 20;
 document.addEventListener('DOMContentLoaded', () => {
     // Dropdown toggle
     document.querySelectorAll('.dropdown-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+              if (dropdown !== btn.nextElementSibling) {
+                dropdown.classList.remove('show');
+              }
+            });
             btn.nextElementSibling.classList.toggle('show');
         });
     });
-    
     
     // Close dropdowns when clicking outside
     window.addEventListener('click', () => {
@@ -13253,7 +13258,7 @@ function openFoodPopup(food) {
     document.getElementById('popup-image').alt = food.name;
     document.getElementById('popup-serving-size').innerHTML = `
       <span class="label"><strong>Serving Size:</strong></span>
-      <span class="value">${food.servingSize} (${food.servingGrams} g)</span>
+      <span class="value">${food.servingSize} (${food.servingGrams}g)</span>
     `;
 
     const nutrition = `
