@@ -41,7 +41,7 @@ body {
 .dropdown-container {
     display: flex;
     justify-content: center;
-    max-width: 660px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 10px;
     box-sizing: border-box;
@@ -49,17 +49,18 @@ body {
 
 .dropdown {
     position: relative;
+    display: inline-block;
 }
 
 .dropdown-btn {
     border-color: white;
     color: black;
-    width: 205px;
+    width: clamp(120px, 25vw, 205px);
     border-width: 0px;
     border-radius: 10px;
     background-color: white;
     text-align: center;
-    font-size: clamp(14px, 3vw, 20px);
+    font-size: clamp(8px, 2.5vw, 20px);
     font-style: bold;
     cursor: pointer;
     -webkit-appearance: none;
@@ -70,7 +71,14 @@ body {
 .dropdown-content {
     display: none;
     position: absolute;
-    width: 150px;
+    width: 100%;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 120px;
+    max-width: 160px;
+    width: auto;
+    width: var(--dropdown-btn-width);
     background-color: white;
     border: 1px solid black;
     border-radius: 10px;
@@ -82,6 +90,7 @@ body {
 .dropdown-content label {
     margin-bottom: 5px;
     display: block;
+    white-space: nowrap;
 }
 
 .dropdown-content.show {
