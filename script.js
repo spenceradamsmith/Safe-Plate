@@ -27,12 +27,30 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    // Close popup when clicking outside
+    window.addEventListener('click', (e) => {
+        const popup = document.getElementById('food-popup');
+        const popupContent = document.querySelector('.popup-content');
+        if (!popup || !popupContent || popup.classList.contains('hidden')) {
+          return;
+        }
+        if (!popupContent.contains(e.target)) {
+          popup.classList.add('hidden');
+        }
+    });
+
+    // Prevent popup from closing when clicking inside
+    document.querySelector('.popup-content').addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+
     // Prevent dropdown from closing when clicking inside it
     document.querySelectorAll('.dropdown').forEach(dropdown => {
       dropdown.addEventListener('click', e => {
-        e.stopPropagation(); // Prevent window click from firing
+        e.stopPropagation();
       });
     });
+
 
     // Event listeners for checkboxes
     document.querySelectorAll('.dropdown-content input[type="checkbox"]').forEach(checkbox => {
@@ -13195,7 +13213,8 @@ function renderPage(results) {
             </div>
         `;
         foodList.appendChild(foodItem);
-        foodItem.addEventListener('click', () => {
+        foodItem.addEventListener('click', (e) => {
+            e.stopPropagation();
             openFoodPopup(food);
         });
     });
