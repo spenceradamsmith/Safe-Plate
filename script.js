@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentPage = 1;
         search = document.getElementById('search').value.trim();
         performSearch();
+        window.scrollTo({top: 0, behavior: 'smooth'});
     });
     
     // Add event listener for exit button for popup
@@ -89,8 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('food-popup').classList.add('hidden');
     });
 
-    
-    
     window.scrollTo({top: 0, behavior: 'smooth'});
 
     fetch('foods.json')
