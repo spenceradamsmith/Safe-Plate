@@ -304,14 +304,15 @@ input[type="checkbox"] {
     margin: 0 0 10px;
     font-size: clamp(12px, 4vw, 25px);
     text-align: left;
+    padding-bottom: 5px;
 }
 
 #popup-serving-size {
     display: flex;
-    font-size: clamp(10px, 2vw, 16px);
+    font-size: clamp(8px, 2vw, 16px);
     font-weight: normal;
     text-align: left;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     justify-content: space-between;
     border-bottom: 1px solid #ccc;
     padding-bottom: 15px;
@@ -332,7 +333,7 @@ input[type="checkbox"] {
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
-    font-size: clamp(10px, 2vw, 16px);
+    font-size: clamp(8px, 2vw, 16px);
 }
 
 .tag-columns {
