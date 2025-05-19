@@ -65,7 +65,7 @@ body {
 .dropdown-btn {
     border-color: white;
     color: black;
-    width: clamp(20px, 25vw, 205px);
+    width: clamp(120px, 25vw, 205px);
     border-width: 0px;
     border-radius: 10px;
     background-color: white;
