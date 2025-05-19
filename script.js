@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-
     // Event listeners for checkboxes
     document.querySelectorAll('.dropdown-content input[type="checkbox"]').forEach(checkbox => {
         checkbox.addEventListener('change', function () {
@@ -69,6 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
             search = '';
             performSearch();
         });
+    });
+
+    // Add event listener for header click to scroll to top
+    document.getElementById('header').addEventListener('click', (e) => {
+      e.stopPropagation();
+      window.scrollTo({top: 0, behavior: 'smooth'});
     });
 
     // Add event listener for search button
