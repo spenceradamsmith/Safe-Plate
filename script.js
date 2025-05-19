@@ -3699,7 +3699,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "wheat": false,
     "soy": false,
     "lowHistamine": false,
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTVizsvvZF3ZVFcM1KB5vfpdQ0i56bYZ19Vg&s"
+    "image": "https://s7g10.scene7.com/is/image/barcelo/dominican-rum_learn-about-rum?&&fmt=webp-alpha&qlt=75&wid=1200&fit=crop,1"
   },
   {
     "name": "Gin",
