@@ -339,7 +339,6 @@ input[type="checkbox"] {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: clamp(3px, 1vw, 20px);
     margin-top: 10px;
     width: 100%;
     max-width: 100%;

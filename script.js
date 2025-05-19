@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
               }
             });
             btn.nextElementSibling.classList.toggle('show');
+            document.getElementById('food-popup').classList.add('hidden');
         });
     });
     
@@ -73,6 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add event listener for header click to scroll to top
     document.getElementById('header').addEventListener('click', (e) => {
       e.stopPropagation();
+      document.getElementById('food-popup').classList.add('hidden');
+      document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+        dropdown.classList.remove('show');
+      });
       window.scrollTo({top: 0, behavior: 'smooth'});
     });
 
