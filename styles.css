@@ -302,13 +302,13 @@ input[type="checkbox"] {
 
 .nutrition-info h3 {
     margin: 0 0 10px;
-    font-size: clamp(14px, 5.5vw, 25px);
+    font-size: clamp(8px, 5.5vw, 25px);
     text-align: left;
 }
 
 #popup-serving-size {
     display: flex;
-    font-size: clamp(2px, 2vw, 16px);
+    font-size: clamp(5px, 2vw, 16px);
     font-weight: normal;
     text-align: left;
     margin-bottom: 10px;
@@ -332,7 +332,7 @@ input[type="checkbox"] {
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
-    font-size: clamp(2px, 2vw, 16px);
+    font-size: clamp(5px, 2vw, 16px);
 }
 
 .tag-columns {
