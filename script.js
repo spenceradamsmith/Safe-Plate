@@ -84,12 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add event listener for search button
     document.getElementById('search-btn').addEventListener('click', () => {
-        allergies = [];
-        dietaryRestrictions = [];
-        preferences = [];
-        document.querySelectorAll('.dropdown-content input[type="checkbox"]').forEach(checkbox => {
-            checkbox.checked = false;
-        });
         currentPage = 1;
         search = document.getElementById('search').value.trim();
         performSearch();
@@ -1405,7 +1399,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "wheat": false,
     "soy": false,
     "lowHistamine": false,
-    "image": "https://canadianfoodfocus.org/wp-content/uploads/2020/09/types-of-cabbage-1024x576.jpg"
+    "image": "https://www.thespruceeats.com/thmb/IpMoMgZn7v-lJTN-HBCW6_N6Acg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/greencabbageDianaMiller-750a13ed901b46cd807bee7ed0ed8586.jpg"
   },
   {
     "name": "Beef Steak",
