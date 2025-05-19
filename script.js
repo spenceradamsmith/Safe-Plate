@@ -386,7 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "sugars": 1.2,
     "sodium": 100.0,
     "category": "Grain",
-    "glutenFree": true,
+    "glutenFree": false,
     "dairyFree": true,
     "kosher": false,
     "vegan": true,
