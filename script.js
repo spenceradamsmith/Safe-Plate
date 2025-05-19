@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('search').value = '';
             search = '';
             performSearch();
+            window.scrollTo({top: 0, behavior: 'smooth'});
         });
     });
 
@@ -1134,7 +1135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "wheat": false,
     "soy": false,
     "lowHistamine": false,
-    "image": "https://static.wikia.nocookie.net/horticultureandsoilscience/images/8/88/Bright_red_tomato_and_cross_section02.jpg/revision/latest/scale-to-width-down/1200?cb=20120306222912"
+    "image": "https://dengarden.com/.image/c_fill,g_faces:center/MTk3NDQ3MTk3NDE4MDcxMDQ2/how-to-get-the-highest-yield-and-best-flavor-from-tomatoes.jpg"
   },
   {
     "name": "Cucumber",
