@@ -13258,7 +13258,7 @@ function openFoodPopup(food) {
     document.getElementById('popup-image').alt = food.name;
     document.getElementById('popup-serving-size').innerHTML = `
       <span class="label"><strong>Serving Size:</strong></span>
-      <span class="value">${food.servingSize} (${food.servingGrams}g)</span>
+      <span class="value">${food.servingSize} (${food.servingGrams} g)</span>
     `;
 
     const nutrition = `
