@@ -13220,6 +13220,9 @@ function renderPage(results) {
         foodItem.addEventListener('click', (e) => {
             e.stopPropagation();
             openFoodPopup(food);
+            document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+              dropdown.classList.remove('show');
+            });
         });
     });
 
