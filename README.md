@@ -17,4 +17,5 @@ Pagination: Browse results in pages of 20 items for faster loading and smoother 
 Nutrition Popups: View detailed nutrition facts and tags for each food item in a popup window.
 
 All rights reserved.
+
 This project is proprietary. You may not copy, distribute, or modify any part of it without explicit permission from the author.
